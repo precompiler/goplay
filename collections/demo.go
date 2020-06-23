@@ -23,10 +23,14 @@ func main() {
 	toUpperCase(alphabets)
 	printAlphabets(alphabets)
 
-	lights := [2]light{{"off"}, light{"off"}}
+	lights := [2]light{{"off"}, {"off"}}
 	printLightsStatus(lights)
 	turnAllLightsOn(lights)
 	printLightsStatus(lights)
+
+	turnAllLightsOnForce(&lights)
+	printLightsStatus(lights)
+
 }
 
 func toUpperCase(alphabets [26]string) {
@@ -48,8 +52,15 @@ func printLightsStatus(lights [2]light) {
 }
 
 func turnAllLightsOn(lights [2]light) {
-	for _, l := range lights {
-		l.Status = "on"
+	for i := 0; i < len(lights); i++ {
+		lights[i].Status = "on"
+	}
+}
+
+func turnAllLightsOnForce(lights *[2]light) {
+	//lights[0].Status = "on"
+	for i := 0; i < len(lights); i++ {
+		lights[i].Status = "on"
 	}
 }
 
