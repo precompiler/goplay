@@ -31,6 +31,39 @@ func main() {
 	turnAllLightsOnForce(&lights)
 	printLightsStatus(lights)
 
+	planets := [...]string{
+		"Mercury",
+		"Venus",
+		"Earth",
+		"Mars",
+		"Jupiter",
+		"Saturn",
+		"Uranus",
+		"Neptune",
+	}
+	telescopeView := planets[0:3]
+	fmt.Println(telescopeView)
+	telescopeView[0] = "destroyed"
+	x := append(telescopeView, "planet-x")
+	fmt.Println(x)
+	fmt.Println(planets)
+
+	originalSlice := make([]string, 5, 10)
+	originalSlice = append(originalSlice, "0", "1", "2", "3")
+	slice1 := append(originalSlice, "4")
+	slice2 := append(originalSlice, "4", "5")
+	fmt.Println(originalSlice)
+	fmt.Println(slice1)
+	fmt.Println(slice2)
+
+	slice2[1] = "x"
+	fmt.Println(originalSlice)
+	fmt.Println(slice1)
+	fmt.Println(slice2)
+	slice1[1] = "y"
+	fmt.Println(originalSlice)
+	fmt.Println(slice1)
+	fmt.Println(slice2)
 }
 
 func toUpperCase(alphabets [26]string) {
