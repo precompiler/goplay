@@ -64,6 +64,14 @@ func main() {
 	fmt.Println(originalSlice)
 	fmt.Println(slice1)
 	fmt.Println(slice2)
+
+	slice3 := []string{"a", "b", "c"}
+	prefix(slice3)
+	fmt.Println(slice3)
+
+	args := []string{"apply", "-f", "test.yaml"}
+	kubectl(args...)
+	fmt.Println(args)
 }
 
 func toUpperCase(alphabets [26]string) {
@@ -98,3 +106,15 @@ func turnAllLightsOnForce(lights *[2]light) {
 }
 
 type light struct{ Status string }
+
+func prefix(slice []string) {
+	for idx, _ := range slice {
+		slice[idx] = "p_" + slice[idx]
+	}
+}
+
+func kubectl(args ...string) {
+	fmt.Printf("%d args received\n", len(args))
+	fmt.Println(args)
+	args[0] = "delete"
+}
